@@ -35,6 +35,10 @@ white-text{
   color: #ffffff;
 }
 
+.App .ListGroup {
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

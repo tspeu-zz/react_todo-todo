@@ -43,7 +43,7 @@ class App extends Component {
         {
           id : 2, 
           title: 'cenar con la flia.',
-          completed: false
+          completed: true
         },
         {
           id : 3, 

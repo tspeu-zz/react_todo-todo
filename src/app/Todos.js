@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoItem from './TodoItem';
+import PropTypes from 'prop-types';
 
 
 class  Todos extends Component {
@@ -16,6 +17,11 @@ class  Todos extends Component {
             // <p> key:{ t.id} |  {t.title}</p>    
         ));
     }
+}
+
+//IS a validatios like and interface->
+Todos.propTypes = {
+    todos : PropTypes.array.isRequired
 }
 
 export default Todos;
