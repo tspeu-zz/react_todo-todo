@@ -8,12 +8,16 @@ export  class TodoItem extends Component {
 
     getStyle = () => {
         
+        return {
+                background: '#fef4f4',
+                textDecoration : this.props.todo.completed ? 'line-through' : 'none',
+                }
 
-        if(this.props.todo.completed) {
-            return{ textDecoration: 'line-through'}
-        } else {
-            return{ textDecoration: 'none'};
-        }
+        // if(this.props.todo.completed) {
+        //     return{ textDecoration: 'line-through'}
+        // } else {
+        //     return{ textDecoration: 'none'};
+        // }
         
     }
 
