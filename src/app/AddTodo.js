@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Button } from 'reactstrap'
+import React, { Component } from 'react';
+import { Button } from 'reactstrap';
+
 
 export class AddTodo extends Component {
 

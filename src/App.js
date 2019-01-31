@@ -5,6 +5,7 @@ import './App.css';
 import Todos from './app/Todos';
 import NavBarHeader from './app/layout/navar';
 import AddTodo from './app/AddTodo';
+import uuid from 'uuid';
 
 class App extends Component {
 
@@ -62,7 +63,7 @@ class App extends Component {
     console.log('APP' , title);
     
     const newTodo = {
-      id : 4,
+      id : uuid.v4(),
       title,
       completed : false
     }
