@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 // import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import uuid from 'uuid';
 import logo from './logo.svg';
@@ -80,24 +80,33 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          < NavBarHeader />
-        
-          <div className="jumbotron">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>Edit <code  className="App-link">src/App.js</code> 
-              and save to reload. </p>
-          </div>
+        < NavBarHeader />
 
-          <div className="container-fluid p-3">
+        <Route exact path="/" render={ props =>(
+          <React.Fragment>
+            <div className="jumbotron">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>Edit <code  className="App-link">src/App.js</code> 
+                and save to reload. </p>
+            </div>
+            <div className="container-fluid p-3">
                 < AddTodo addTodo ={ this.newTodo}  />
-          </div>
+            </div>
+            <div className="container">
+              <Todos  
+                todos={this.state.todos} 
+                taskComplete= {this.checkCompleteTask} 
+                borraTodo= {this.deleteTodo } />
+            </div>
+          </React.Fragment>
+        )} />
 
-          <div className="container">
-            <Todos  
-              todos={this.state.todos} 
-              taskComplete= {this.checkCompleteTask} 
-              borraTodo= {this.deleteTodo } />
-          </div>
+        <Route path="/about" component= {About} />
+
+
+        
+
+
         </div>
       </Router>
     );

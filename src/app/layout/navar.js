@@ -1,5 +1,6 @@
 import React , {Component }from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Link }  from 'react-router-dom';
 // import logo from '../../../logo.svg';
 
 
@@ -35,9 +36,14 @@ class NavBarHeader extends Component {
 
             <Collapse isOpen={!this.state.collapsed} navbar>
 
-                <Nav navbar className="white-text">
+                <Nav navbar>
+                    <NavItem className="white-text">
+                        {/* <NavLink href="/components/" >Components</NavLink> */}
+                        <Link to="/"  className="white-text">Home</Link>
+                    </NavItem>
                     <NavItem >
-                        <NavLink href="/components/" >Components</NavLink>
+                        {/* <NavLink href="/components/" >Components</NavLink> */}
+                        <Link to="/about" >about</Link>
                     </NavItem>
                     <NavItem>
                         <NavLink target="_blank" href="https://github.com/tspeu">GitHub</NavLink>
