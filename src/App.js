@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router} from 'react-router-dom';
 // import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import uuid from 'uuid';
 import logo from './logo.svg';
 import './App.css';
 import Todos from './app/Todos';
 import NavBarHeader from './app/layout/navar';
 import AddTodo from './app/AddTodo';
-import uuid from 'uuid';
+import About from './app/pages/about';
 
 class App extends Component {
 
@@ -76,31 +78,28 @@ class App extends Component {
     console.log('todos', this.state.todos);
 
     return (
-
-      <div className="App">
-        
+      <Router>
+        <div className="App">
           < NavBarHeader />
-      
+        
           <div className="jumbotron">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code  className="App-link">src/App.js</code> and save to reload.
-            </p>
+            <p>Edit <code  className="App-link">src/App.js</code> 
+              and save to reload. </p>
           </div>
 
           <div className="container-fluid p-3">
                 < AddTodo addTodo ={ this.newTodo}  />
           </div>
 
-            <div className="container">
-
-
-                <Todos  todos={this.state.todos} 
-                        taskComplete= {this.checkCompleteTask} 
-                        borraTodo= {this.deleteTodo } />
-            </div>
-
-      </div>
+          <div className="container">
+            <Todos  
+              todos={this.state.todos} 
+              taskComplete= {this.checkCompleteTask} 
+              borraTodo= {this.deleteTodo } />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
