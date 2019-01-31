@@ -25,7 +25,9 @@ class  Todos extends Component {
 
 //IS a validatios like and interface->
 Todos.propTypes = {
-    todos : PropTypes.array.isRequired
+    todos : PropTypes.array.isRequired,
+    taskComplete : PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired,
 }
 
 export default Todos;

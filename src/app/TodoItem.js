@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem , Input} from 'reactstrap';
 import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 
 
 
@@ -52,7 +53,9 @@ export  class TodoItem extends Component {
                 // onChange={ this.props.markComplete.bind(this, this.props.todo.id) } />
                 onChange={ this.props.markComplete.bind(this, id) } />
                     {''} { this.props.todo.title } 
-                <button onClick={this.props.delTodo.bind(this, id)}  style={btnStyle}> x </button>
+                {/* <button onClick={this.props.delTodo.bind(this, id)}  style={btnStyle}> x </button> */}
+                <Button onClick={this.props.delTodo.bind(this, id)}  
+                color="danger" style={{float: 'right'}}>X</Button>{' '}
                                                 {/*SHAY QUE PASAR EL ID    */}
             </ListGroupItem>
         </ListGroup>
@@ -62,7 +65,10 @@ export  class TodoItem extends Component {
 
 //IS a validatios like and interface->
 TodoItem.propTypes = {
-    todo : PropTypes.object.isRequired
+    todo : PropTypes.object.isRequired,
+    delTodo: PropTypes.func.isRequired,
+    markComplete: PropTypes.func.isRequired
+
 }
 
 const btnStyle = {
