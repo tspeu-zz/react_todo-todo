@@ -13,6 +13,9 @@ export  class TodoItem extends Component {
         return {
                 background: '#fef4f4',
                 textDecoration : this.props.todo.completed ? 'line-through' : 'none',
+                color : this.props.todo.completed ? '#7aa711' : '#a71b11',
+                fontStyle: this.props.todo.completed ? 'normal' : 'italic',
+                fontWeight: this.props.todo.completed ? 'normal' : 'bold'
                 }
         // if(this.props.todo.completed) {
         //     return{ textDecoration: 'line-through'}
@@ -48,7 +51,7 @@ export  class TodoItem extends Component {
                 <Input addon type="checkbox"  
                 // onChange={ this.props.markComplete.bind(this, this.props.todo.id) } />
                 onChange={ this.props.markComplete.bind(this, id) } />
-                    {' '} { this.props.todo.title } 
+                    {''} { this.props.todo.title } 
                                                 {/*SHAY QUE PASAR EL ID    */}
             </ListGroupItem>
         </ListGroup>

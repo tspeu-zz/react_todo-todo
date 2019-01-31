@@ -63,6 +63,15 @@ class App extends Component {
   //@ Recive desde ITemTodos y cambia el estado de markComplete
   checkCompleteTask = (id) => {
     console.log('--recide de ItemTodo- TODOS', id);
+    this.setState({
+        todos: this.state.todos.map( t => {
+          if(t.id === id) {
+            t.completed = !t.completed;
+          }
+          return t;
+        })
+        
+        });
     // this.props.todos.markComplete
   };
 
