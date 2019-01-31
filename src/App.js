@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-// import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import uuid from 'uuid';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import Todos from './app/Todos';
@@ -13,24 +13,19 @@ class App extends Component {
 
   state = {
     todos : [
-      {
-        id : 1, 
-        title: 'sacar la basura',
-        completed: false
-      },
-      {
-        id : 2, 
-        title: 'cenar con la flia.',
-        completed: true
-      },
-      {
-        id : 3, 
-        title: 'pasear al perro',
-        completed: false
-      }
+
     ]
   };
 
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then(res => 
+      this.setState({
+        todos: res.data
+      })
+      );
+  }
 
   //@ Recive desde ITemTodos y cambia el estado de markComplete
   checkCompleteTask = (id) => {
@@ -51,11 +46,15 @@ class App extends Component {
   /* @ BORRDA TODO FROM ItemTodo */
   deleteTodo = (id) => {
     console.log('borra todo desde ITEM TODO > ' , id);
-//remove with Filter and rerurn other array
-//NO BORRA , hace una copia del Arrar y solo se muetran los que son distintos del que se ha clck
-    this.setState({
+
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then(res => 
+      this.setState({ 
         todos: [...this.state.todos.filter( t => t.id !== id )]
-    });
+      })
+      );
+      //remove with Filter and rerurn other array
+      //NO BORRA , hace una copia del Arrar y solo se muetran los que son distintos del que se ha clck
 
   }
 
@@ -64,14 +63,16 @@ class App extends Component {
   newTodo = (title) => {
     console.log('APP' , title);
     
-    const newTodo = {
-      id : uuid.v4(),
-      title,
-      completed : false
-    }
-    this.setState({
-      todos : [...this.state.todos, newTodo]
-    });
+    // const newTodo = {
+    //   id : uuid.v4(),
+    //   title,
+    //   completed : false
+    // }
+    axios.post('https://jsonplaceholder.typicode.com/todos', {title, completed : false})
+    .then(res => this.setState({
+              todos : [...this.state.todos, res.data]
+            })
+        );
   }
 
   render() {
