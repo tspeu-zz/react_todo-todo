@@ -35,7 +35,7 @@ white-text{
   color: #ffffff;
 }
 
-.App .ListGroup {
+li {
   text-align: left;
 }
 
