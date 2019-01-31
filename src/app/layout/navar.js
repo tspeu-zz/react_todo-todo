@@ -34,22 +34,21 @@ class NavBarHeader extends Component {
 
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
 
-            <Collapse isOpen={!this.state.collapsed} navbar>
-
-                <Nav navbar>
-                    <NavItem className="white-text">
-                        {/* <NavLink href="/components/" >Components</NavLink> */}
-                        <Link to="/"  className="white-text">Home</Link>
-                    </NavItem>
-                    <NavItem >
-                        {/* <NavLink href="/components/" >Components</NavLink> */}
-                        <Link to="/about" >about</Link>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink target="_blank" href="https://github.com/tspeu">GitHub</NavLink>
-                    </NavItem>
-                </Nav>
-            </Collapse>
+                <Collapse isOpen={!this.state.collapsed} navbar>
+                    <Nav navbar>
+                        <NavItem className="white-text">
+                            {/* <NavLink href="/components/" >Components</NavLink> */}
+                            <Link to="/"  className="white-text">Home</Link>
+                        </NavItem>
+                        <NavItem >
+                            {/* <NavLink href="/components/" >Components</NavLink> */}
+                            <Link to="/about" >about</Link>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink target="_blank" href="https://github.com/tspeu">GitHub</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
             </Navbar>
         )
     }
