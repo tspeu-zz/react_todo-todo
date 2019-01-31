@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import { ListGroup, ListGroupItem , Input} from 'reactstrap';
 import PropTypes from 'prop-types';
 
 
@@ -29,18 +28,28 @@ export  class TodoItem extends Component {
     //     console.log(this.props); //this.markComplete.this.bind(this)    
     // }
 
-    markComplete = (e) => {
-        console.log(this.props.todo.id);
-    }; 
+    // markComplete = (e) => {
+    //     console.log(this.props.todo.id);
+    // }; 
+
+
+    /* @ https://javascriptplayground.com/es6-destructuring/ */
+    //sacar las variables del this, o de un objeto
 
 
     render() {
+    // destructuring dentro del contexto
+        const {id, title} = this.props.todo;
+
         return (
             <ListGroup>
             <ListGroupItem style= { this.getStyle() }>
                                                 {/*SE ASIGNA AL PROPS PARA IR SUBIENDO AL PADRE   */}
-                <Input addon type="checkbox"  onChange={ this.props.markComplete } />
+                <Input addon type="checkbox"  
+                // onChange={ this.props.markComplete.bind(this, this.props.todo.id) } />
+                onChange={ this.props.markComplete.bind(this, id) } />
                     {' '} { this.props.todo.title } 
+                                                {/*SHAY QUE PASAR EL ID    */}
             </ListGroupItem>
         </ListGroup>
     

@@ -14,7 +14,7 @@ class  Todos extends Component {
         console.log('from app.js', this.props.todos);
         return this.props.todos.map( (t) =>  (
 
-            <TodoItem key= {t.id} todo = { t }  markComplete= {this.taskComplete}/>
+            <TodoItem key= {t.id} todo = { t }  markComplete= {this.props.taskComplete}/>
             // <span>{t.id} </span>    
             // <p> key:{ t.id} |  {t.title}</p>    
         ));

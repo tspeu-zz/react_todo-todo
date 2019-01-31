@@ -60,7 +60,13 @@ class App extends Component {
     });
   }
 
+  //@ Recive desde ITemTodos y cambia el estado de markComplete
+  checkCompleteTask = (id) => {
+    console.log('--recide de ItemTodo- TODOS', id);
+    // this.props.todos.markComplete
+  };
 
+  
   render() {
     console.log('todos', this.state.todos);
 
@@ -95,7 +101,7 @@ class App extends Component {
         </div>
 
           <div className="container">
-              <Todos todos={this.state.todos}/>
+              <Todos todos={this.state.todos} taskComplete= {this.checkCompleteTask}/>
           </div>
 
       </div>
