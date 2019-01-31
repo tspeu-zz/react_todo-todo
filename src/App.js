@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Todos from './app/Todos';
 import NavBarHeader from './app/layout/navar';
+import AddTodo from './app/AddTodo';
 
 class App extends Component {
 
@@ -56,6 +57,19 @@ class App extends Component {
   }
 
 
+  //recibe el add Todo de ITem y crea uno nuevo
+  newTodo = (title) => {
+    console.log('APP' , title);
+    
+    const newTodo = {
+      id : 4,
+      title,
+      completed : false
+    }
+    this.setState({
+      todos : [...this.state.todos, newTodo]
+    });
+  }
 
   render() {
     console.log('todos', this.state.todos);
@@ -73,8 +87,14 @@ class App extends Component {
             </p>
           </div>
 
+          <div className="container-fluid p-3">
+                < AddTodo addTodo ={ this.newTodo}  />
+          </div>
+
             <div className="container">
-                <Todos todos={this.state.todos} 
+
+
+                <Todos  todos={this.state.todos} 
                         taskComplete= {this.checkCompleteTask} 
                         borraTodo= {this.deleteTodo } />
             </div>
