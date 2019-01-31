@@ -52,6 +52,7 @@ export  class TodoItem extends Component {
                 // onChange={ this.props.markComplete.bind(this, this.props.todo.id) } />
                 onChange={ this.props.markComplete.bind(this, id) } />
                     {''} { this.props.todo.title } 
+                <button onClick={this.props.delTodo.bind(this, id)}  style={btnStyle}> x </button>
                                                 {/*SHAY QUE PASAR EL ID    */}
             </ListGroupItem>
         </ListGroup>
@@ -62,6 +63,16 @@ export  class TodoItem extends Component {
 //IS a validatios like and interface->
 TodoItem.propTypes = {
     todo : PropTypes.object.isRequired
+}
+
+const btnStyle = {
+    background: '#dd1c0e',
+    color: '#fff',
+    border: 'none',
+    padding: '5px 8px',
+    borderRadius: '75%',
+    cursor: 'pointer',
+    float: 'right'
 }
 
 const itemStyle = {

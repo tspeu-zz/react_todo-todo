@@ -62,7 +62,7 @@ class App extends Component {
 
   //@ Recive desde ITemTodos y cambia el estado de markComplete
   checkCompleteTask = (id) => {
-    console.log('--recide de ItemTodo- TODOS', id);
+    // console.log('--recide de ItemTodo- TODOS', id);
     this.setState({
         todos: this.state.todos.map( t => {
           if(t.id === id) {
@@ -75,7 +75,20 @@ class App extends Component {
     // this.props.todos.markComplete
   };
 
-  
+
+  /* @ BORRDA TODO FROM ItemTodo */
+  deleteTodo = (id) => {
+    console.log('borra todo desde ITEM TODO > ' , id);
+//remove with Filter and rerurn other array
+//NO BORRA , hace una copia del Arrar y solo se muetran los que son distintos del que se ha clck
+    this.setState({
+        todos: [...this.state.todos.filter( t => t.id !== id )]
+    });
+
+  }
+
+
+
   render() {
     console.log('todos', this.state.todos);
 
@@ -110,7 +123,9 @@ class App extends Component {
         </div>
 
           <div className="container">
-              <Todos todos={this.state.todos} taskComplete= {this.checkCompleteTask}/>
+              <Todos todos={this.state.todos} 
+                      taskComplete= {this.checkCompleteTask} 
+                      borraTodo= {this.deleteTodo } />
           </div>
 
       </div>
